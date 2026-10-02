@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexusWrite | Technical Content & Documentation Studio for Cybersecurity & AI</title>
+    <meta name="description" content="Specialized technical content writing, product documentation, and B2B SaaS messaging for cybersecurity, AI, cloud, and developer tool companies.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter & JetBrains Mono for subtle technical aesthetic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind Custom Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        navy: {
+                            900: '#0B132B',
+                            800: '#1C2541',
+                            700: '#3A506B',
+                        },
+                        accent: {
+                            DEFAULT: '#2563EB', // Professional deep tech blue
+                            hover: '#1D4ED8',
+                            light: '#EFF6FF',
+                        },
+                        surface: {
+                            DEFAULT: '#F8FAFC',
+                            card: '#FFFFFF',
+                            border: '#E2E8F0',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom clean technical styling elements */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FAFAFC;
+            color: #1E293B;
+        }
+        .tech-grid {
+            background-image: radial-gradient(#CBD5E1 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+        .mono-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-accent selection:text-white">
+
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-surface-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#home" onclick="switchPage('home')" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded bg-navy-900 text-white flex items-center justify-center font-mono font-bold text-lg group-hover:bg-accent transition-colors">
+                    NX
+                </div>
+                <div>
+                    <span class="font-bold text-lg tracking-tight text-navy-900">NexusWrite</span>
+                    <span class="block mono-tag text-slate-500 uppercase tracking-widest text-[10px]">Technical Content Studio</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <button onclick="switchPage('home')" id="nav-home" class="nav-link text-sm font-medium text-accent transition-colors">Home</button>
+                <button onclick="switchPage('services')" id="nav-services" class="nav-link text-sm font-medium text-slate-600 hover:text-accent transition-colors">Services</button>
+                <button onclick="switchPage('portfolio')" id="nav-portfolio" class="nav-link text-sm font-medium text-slate-600 hover:text-accent transition-colors">Portfolio</button>
+                <button onclick="switchPage('about')" id="nav-about" class="nav-link text-sm font-medium text-slate-600 hover:text-accent transition-colors">About</button>
+                <button onclick="switchPage('contact')" id="nav-contact" class="nav-link text-sm font-medium text-slate-600 hover:text-accent transition-colors">Contact</button>
+            </nav>
+
+            <!-- CTA Header Button -->
+            <div class="hidden md:flex items-center space-x-4">
+                <button onclick="switchPage('contact')" class="px-4 py-2 bg-navy-900 hover:bg-accent text-white text-sm font-medium rounded transition-colors">
+                    Let's Talk
+                </button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden flex items-center">
+                <button onclick="toggleMobileMenu()" id="menu-btn" class="p-2 text-slate-700 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-surface-border px-4 pt-2 pb-6 space-y-3">
+            <button onclick="switchPage('home'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-slate-700">Home</button>
+            <button onclick="switchPage('services'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-slate-700">Services</button>
+            <button onclick="switchPage('portfolio'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-slate-700">Portfolio</button>
+            <button onclick="switchPage('about'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-slate-700">About</button>
+            <button onclick="switchPage('contact'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-slate-700">Contact</button>
+            <button onclick="switchPage('contact'); toggleMobileMenu();" class="w-full mt-2 px-4 py-2.5 bg-navy-900 text-white rounded font-medium text-center">Let's Talk</button>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+
+        <!-- ==================== PAGE 1: HOME ==================== -->
+        <div id="page-home" class="page-view">
+            <!-- Hero Section -->
+            <section class="relative pt-20 pb-24 md:pt-28 md:pb-36 overflow-hidden tech-grid border-b border-surface-border">
+                <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 bg-white border border-surface-border rounded-full text-xs font-mono text-slate-600 mb-6 shadow-sm">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span>Specialized Technical Studio • Cybersecurity & AI Focus</span>
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-navy-900 tracking-tight leading-[1.15] mb-6">
+                        Technical Content That Makes Complex Technology Clear.
+                    </h1>
+                    <p class="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed mb-10">
+                        We help cybersecurity, AI, cloud, and SaaS companies turn complex ideas and products into clear content that customers can understand.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <button onclick="switchPage('contact')" class="w-full sm:w-auto px-8 py-3.5 bg-accent hover:bg-accent-hover text-white font-medium rounded transition-colors shadow-sm text-center">
+                            Let's Talk
+                        </button>
+                        <button onclick="switchPage('portfolio')" class="w-full sm:w-auto px-8 py-3.5 bg-white hover:bg-slate-50 text-navy-900 font-medium rounded border border-surface-border transition-colors text-center">
+                            View Our Work
+                        </button>
+                    </div>
+
+                    <!-- Credibility Metric -->
+                    <div class="mt-16 pt-10 border-t border-slate-200/80 grid grid-cols-2 md:grid-cols-4 gap-6 text-left">
+                        <div class="bg-white p-4 rounded-lg border border-surface-border shadow-sm">
+                            <div class="text-2xl font-bold font-mono text-navy-900">~5 Years</div>
+                            <div class="text-xs text-slate-500 mt-1">Specialized Tech Writing Experience</div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border border-surface-border shadow-sm">
+                            <div class="text-2xl font-bold font-mono text-navy-900">100%</div>
+                            <div class="text-xs text-slate-500 mt-1">Human-Reviewed Technical Rigor</div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border border-surface-border shadow-sm">
+                            <div class="text-2xl font-bold font-mono text-navy-900">B2B SaaS</div>
+                            <div class="text-xs text-slate-500 mt-1">Cybersecurity & Cloud Focused</div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border border-surface-border shadow-sm">
+                            <div class="text-2xl font-bold font-mono text-navy-900">Zero</div>
+                            <div class="text-xs text-slate-500 mt-1">Fluff or Generic Marketing Spin</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- What We Do Overview -->
+            <section class="py-20 bg-white border-b border-surface-border">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                        <div>
+                            <span class="mono-tag text-accent font-semibold tracking-wider uppercase">Capabilities</span>
+                            <h2 class="text-3xl font-bold text-navy-900 mt-2">What We Do</h2>
+                        </div>
+                        <button onclick="switchPage('services')" class="mt-4 md:mt-0 text-accent hover:underline font-medium text-sm flex items-center">
+                            View all services & breakdowns &rarr;
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <!-- Card 1 -->
+                        <div class="p-6 rounded-xl bg-surface border border-surface-border hover:border-accent transition-all flex flex-col justify-between">
+                            <div>
+                                <div class="w-10 h-10 rounded bg-accent/10 text-accent flex items-center justify-center font-mono font-bold mb-4">01</div>
+                                <h3 class="font-bold text-navy-900 text-lg mb-2">Technical Content</h3>
+                                <p class="text-slate-600 text-sm leading-relaxed mb-4">Technical blogs, SEO articles, and explainers that break down complex architectures without losing precision.</p>
+                            </div>
+                            <span class="mono-tag text-slate-400">Blogs • Explainers • SEO</span>
+                        </div>
+                        <!-- Card 2 -->
+                        <div class="p-6 rounded-xl bg-surface border border-surface-border hover:border-accent transition-all flex flex-col justify-between">
+                            <div>
+                                <div class="w-10 h-10 rounded bg-accent/10 text-accent flex items-center justify-center font-mono font-bold mb-4">02</div>
+                                <h3 class="font-bold text-navy-900 text-lg mb-2">Technical Documentation</h3>
+                                <p class="text-slate-600 text-sm leading-relaxed mb-4">Product documentation, user guides, knowledge bases, and API manuals that developers actually enjoy reading.</p>
+                            </div>
+                            <span class="mono-tag text-slate-400">Docs • Guides • SOPs</span>
+                        </div>
+                        <!-- Card 3 -->
+                        <div class="p-6 rounded-xl bg-surface border border-surface-border hover:border-accent transition-all flex flex-col justify-between">
+                            <div>
+                                <div class="w-10 h-10 rounded bg-accent/10 text-accent flex items-center justify-center font-mono font-bold mb-4">03</div>
+                                <h3 class="font-bold text-navy-900 text-lg mb-2">B2B Content</h3>
+                                <p class="text-slate-600 text-sm leading-relaxed mb-4">Whitepapers, case studies, and solution briefs designed to convince technical decision-makers and buyers.</p>
+                            </div>
+                            <span class="mono-tag text-slate-400">Whitepapers • Case Studies</span>
+                        </div>
+                        <!-- Card 4 -->
+                        <div class="p-6 rounded-xl bg-surface border border-surface-border hover:border-accent transition-all flex flex-col justify-between">
+                            <div>
+                                <div class="w-10 h-10 rounded bg-accent/10 text-accent flex items-center justify-center font-mono font-bold mb-4">04</div>
+                                <h3 class="font-bold text-navy-900 text-lg mb-2">Founder & Thought Leadership</h3>
+                                <p class="text-slate-600 text-sm leading-relaxed mb-4">LinkedIn posts and executive essays capturing your authentic voice and engineering philosophy.</p>
+                            </div>
+                            <span class="mono-tag text-slate-400">LinkedIn • Executive Voice</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Who We Work With -->
+            <section class="py-16 bg-surface border-b border-surface-border">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <p class="mono-tag text-slate-500 uppercase tracking-widest mb-8">Who We Work With</p>
+                    <div class="flex flex-wrap justify-center items-center gap-4 md:gap-8">
+                        <span class="px-5 py-2.5 bg-white border border-surface-border rounded-lg text-sm font-medium text-navy-900 shadow-sm">Cybersecurity</span>
+                        <span class="text-slate-300">|</span>
+                        <span class="px-5 py-2.5 bg-white border border-surface-border rounded-lg text-sm font-medium text-navy-900 shadow-sm">AI Companies</span>
+                        <span class="text-slate-300">|</span>
+                        <span class="px-5 py-2.5 bg-white border border-surface-border rounded-lg text-sm font-medium text-navy-900 shadow-sm">Cloud</span>
+                        <span class="text-slate-300">|</span>
+                        <span class="px-5 py-2.5 bg-white border border-surface-border rounded-lg text-sm font-medium text-navy-900 shadow-sm">SaaS</span>
+                        <span class="text-slate-300">|</span>
+                        <span class="px-5 py-2.5 bg-white border border-surface-border rounded-lg text-sm font-medium text-navy-900 shadow-sm">DevSecOps</span>
+                        <span class="text-slate-300">|</span>
+                        <span class="px-5 py-2.5 bg-white border border-surface-border rounded-lg text-sm font-medium text-navy-900 shadow-sm">B2B Technology</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Why Work With Us -->
+            <section class="py-20 bg-white border-b border-surface-border">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="max-w-3xl mb-16">
+                        <span class="mono-tag text-accent font-semibold tracking-wider uppercase">Our Principles</span>
+                        <h2 class="text-3xl font-bold text-navy-900 mt-2">Why Work With Us</h2>
+                        <p class="text-slate-600 mt-3">We write for technical buyers and real engineers. No fluff, no buzzwords, just clear explanation.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="p-6 rounded-lg bg-surface border border-surface-border">
+                            <h3 class="font-bold text-navy-900 mb-2">Technical Understanding</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">We understand threat modeling, APIs, LLM architectures, and cloud infrastructure so you don't spend hours explaining basics.</p>
+                        </div>
+                        <div class="p-6 rounded-lg bg-surface border border-surface-border">
+                            <h3 class="font-bold text-navy-900 mb-2">Clear Human Writing</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">No generic marketing jargon or hollow buzzwords. Clean, direct prose designed for intelligent readers.</p>
+                        </div>
+                        <div class="p-6 rounded-lg bg-surface border border-surface-border">
+                            <h3 class="font-bold text-navy-900 mb-2">Research-Driven Content</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">Every piece is backed by thorough subject research, competitor analysis, and accurate technical terminology.</p>
+                        </div>
+                        <div class="p-6 rounded-lg bg-surface border border-surface-border">
+                            <h3 class="font-bold text-navy-900 mb-2">Business-Focused Messaging</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">Technical accuracy tied directly to your product's value proposition and go-to-market goals.</p>
+                        </div>
+                        <div class="p-6 rounded-lg bg-surface border border-surface-border">
+                            <h3 class="font-bold text-navy-900 mb-2">Human-Reviewed Workflows</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">Efficient AI-assisted workflows where appropriate, meticulously edited and verified by an experienced technical writer.</p>
+                        </div>
+                        <div class="p-6 rounded-lg bg-surface border border-surface-border">
+                            <h3 class="font-bold text-navy-900 mb-2">Written for Real Readers</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">Content optimized to solve actual user problems and build genuine trust, not just for search engine algorithms.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Work Portfolio Cards -->
+            <section class="py-20 bg-surface border-b border-surface-border">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                        <div>
+                            <span class="mono-tag text-accent font-semibold tracking-wider uppercase">Sample Output</span>
+                            <h2 class="text-3xl font-bold text-navy-900 mt-2">Featured Work</h2>
+                        </div>
+                        <button onclick="switchPage('portfolio')" class="mt-4 md:mt-0 text-accent hover:underline font-medium text-sm flex items-center">
+                            Explore full portfolio grid &rarr;
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Portfolio Item 1 -->
+                        <div onclick="openProjectModal('Zero-Trust Architecture Guide', 'Cybersecurity', 'Technical Blog', 'A deep-dive technical guide explaining zero-trust microsegmentation for cloud-native enterprise environments.')" class="bg-white p-6 rounded-xl border border-surface-border hover:border-accent transition-all cursor-pointer group">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="mono-tag px-2.5 py-1 bg-surface rounded text-slate-600">Cybersecurity</span>
+                                <span class="text-xs text-slate-400">Technical Blog</span>
+                            </div>
+                            <h3 class="font-bold text-navy-900 text-lg group-hover:text-accent transition-colors">Zero-Trust Architecture Guide</h3>
+                            <p class="text-slate-600 text-sm mt-2 line-clamp-2">Explaining microsegmentation policies for Kubernetes workloads without corporate fluff.</p>
+                            <div class="mt-4 pt-4 border-t border-slate-100 flex items-center text-xs text-accent font-medium">
+                                View project details &rarr;
+                            </div>
+                        </div>
+
+                        <!-- Portfolio Item 2 -->
+                        <div onclick="openProjectModal('RAG vs Fine-Tuning LLMs', 'AI', 'Cybersecurity Explainer', 'An analytical comparison piece for machine learning engineers evaluating enterprise data security constraints.')" class="bg-white p-6 rounded-xl border border-surface-border hover:border-accent transition-all cursor-pointer group">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="mono-tag px-2.5 py-1 bg-surface rounded text-slate-600">AI</span>
+                                <span class="text-xs text-slate-400">Explainer</span>
+                            </div>
+                            <h3 class="font-bold text-navy-900 text-lg group-hover:text-accent transition-colors">RAG vs Fine-Tuning LLMs</h3>
+                            <p class="text-slate-600 text-sm mt-2 line-clamp-2">Technical breakdown of data privacy and latency trade-offs for B2B AI software applications.</p>
+                            <div class="mt-4 pt-4 border-t border-slate-100 flex items-center text-xs text-accent font-medium">
+                                View project details &rarr;
+                            </div>
+                        </div>
+
+                        <!-- Portfolio Item 3 -->
+                        <div onclick="openProjectModal('Securing Cloud Infrastructure', 'Cloud', 'Whitepaper', 'A comprehensive 15-page whitepaper on automated compliance monitoring in multi-cloud environments.')" class="bg-white p-6 rounded-xl border border-surface-border hover:border-accent transition-all cursor-pointer group">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="mono-tag px-2.5 py-1 bg-surface rounded text-slate-600">Cloud</span>
+                                <span class="text-xs text-slate-400">Whitepaper</span>
+                            </div>
+                            <h3 class="font-bold text-navy-900 text-lg group-hover:text-accent transition-colors">Securing Cloud Infrastructure</h3>
+                            <p class="text-slate-600 text-sm mt-2 line-clamp-2">In-depth whitepaper examining posture management and continuous compliance auditing.</p>
+                            <div class="mt-4 pt-4 border-t border-slate-100 flex items-center text-xs text-accent font-medium">
+                                View project details &rarr;
+                            </div>
+                        </div>
+
+                        <!-- Portfolio Item 4 -->
+                        <div onclick="openProjectModal('Reducing CI/CD Pipeline Latency', 'DevSecOps', 'Case Study', 'How a B2B SaaS engineering team cut security scan times in half without compromising pipeline safety.')" class="bg-white p-6 rounded-xl border border-surface-border hover:border-accent transition-all cursor-pointer group">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="mono-tag px-2.5 py-1 bg-surface rounded text-slate-600">SaaS</span>
+                                <span class="text-xs text-slate-400">Case Study</span>
+                            </div>
+                            <h3 class="font-bold text-navy-900 text-lg group-hover:text-accent transition-colors">Reducing CI/CD Pipeline Latency</h3>
+                            <p class="text-slate-600 text-sm mt-2 line-clamp-2">Detailed engineering case study highlighting developer productivity metrics and SAST integration.</p>
+                            <div class="mt-4 pt-4 border-t border-slate-100 flex items-center text-xs text-accent font-medium">
+                                View project details &rarr;
+                            </div>
+                        </div>
+
+                        <!-- Portfolio Item 5 -->
+                        <div onclick="openProjectModal('Developer API Reference Docs', 'Documentation', 'Product Documentation', 'Structuring an intuitive developer portal with clear code snippets, error handling, and authentication guides.')" class="bg-white p-6 rounded-xl border border-surface-border hover:border-accent transition-all cursor-pointer group">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="mono-tag px-2.5 py-1 bg-surface rounded text-slate-600">Documentation</span>
+                                <span class="text-xs text-slate-400">Product Docs</span>
+                            </div>
+                            <h3 class="font-bold text-navy-900 text-lg group-hover:text-accent transition-colors">Developer API Reference Docs</h3>
+                            <p class="text-slate-600 text-sm mt-2 line-clamp-2">Complete API reference overhaul focused on reducing time-to-first-hello-world for developers.</p>
+                            <div class="mt-4 pt-4 border-t border-slate-100 flex items-center text-xs text-accent font-medium">
+                                View project details &rarr;
+                            </div>
+                        </div>
+
+                        <!-- Portfolio Item 6 -->
+                        <div onclick="openProjectModal('Founder LinkedIn Thought Leadership', 'Thought Leadership', 'LinkedIn Content', 'Building technical authority for early-stage startup founders through contrarian takes on cloud security.')" class="bg-white p-6 rounded-xl border border-surface-border hover:border-accent transition-all cursor-pointer group">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="mono-tag px-2.5 py-1 bg-surface rounded text-slate-600">Thought Leadership</span>
+                                <span class="text-xs text-slate-400">LinkedIn</span>
+                            </div>
+                            <h3 class="font-bold text-navy-900 text-lg group-hover:text-accent transition-colors">Founder LinkedIn Series</h3>
+                            <p class="text-slate-600 text-sm mt-2 line-clamp-2">Thought leadership campaign highlighting deep engineering insights without superficial hype.</p>
+                            <div class="mt-4 pt-4 border-t border-slate-100 flex items-center text-xs text-accent font-medium">
+                                View project details &rarr;
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- How We Work Process -->
+            <section class="py-20 bg-white border-b border-surface-border">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="max-w-3xl mb-16">
+                        <span class="mono-tag text-accent font-semibold tracking-wider uppercase">Workflow</span>
+                        <h2 class="text-3xl font-bold text-navy-900 mt-2">How We Work</h2>
+                        <p class="text-slate-600 mt-3">A transparent, four-step process built to minimize your overhead and maximize technical accuracy.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                        <div class="p-6 rounded-lg bg-surface border border-surface-border relative">
+                            <div class="text-3xl font-mono font-bold text-slate-300 mb-4">01</div>
+                            <h3 class="font-bold text-navy-900 text-lg mb-2">Understand</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">We review your product architecture, talk with your engineering or product leads, and define clear target audiences.</p>
+                        </div>
+                        <div class="p-6 rounded-lg bg-surface border border-surface-border relative">
+                            <div class="text-3xl font-mono font-bold text-slate-300 mb-4">02</div>
+                            <h3 class="font-bold text-navy-900 text-lg mb-2">Research</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">We analyze competitor positioning, technical documentation, and relevant industry standards or threat vectors.</p>
+                        </div>
+                        <div class="p-6 rounded-lg bg-surface border border-surface-border relative">
+                            <div class="text-3xl font-mono font-bold text-slate-300 mb-4">03</div>
+                            <h3 class="font-bold text-navy-900 text-lg mb-2">Write</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">We draft the content with precision, structuring code examples, diagrams, and arguments logically.</p>
+                        </div>
+                        <div class="p-6 rounded-lg bg-surface border border-surface-border relative">
+                            <div class="text-3xl font-mono font-bold text-slate-300 mb-4">04</div>
+                            <h3 class="font-bold text-navy-900 text-lg mb-2">Review & Deliver</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">You review the draft, we refine based on your technical feedback, and deliver ready-to-publish content.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Final CTA Section -->
+            <section class="py-24 bg-navy-900 text-white text-center">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">Have a complex product that needs better content?</h2>
+                    <p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8">Let's turn your technical ideas into content your customers can understand.</p>
+                    <button onclick="switchPage('contact')" class="px-8 py-4 bg-accent hover:bg-accent-hover text-white font-medium rounded transition-colors shadow-sm text-base">
+                        Start a Conversation
+                    </button>
+                </div>
+            </section>
+        </div>
+
+        <!-- ==================== PAGE 2: SERVICES ==================== -->
+        <div id="page-services" class="page-view hidden">
+            <!-- Services Header -->
+            <section class="py-20 bg-white border-b border-surface-border tech-grid">
+                <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <span class="mono-tag text-accent font-semibold tracking-wider uppercase">Services & Capabilities</span>
+                    <h1 class="text-4xl font-bold text-navy-900 tracking-tight mt-2 mb-4">Specialized Technical Content Services</h1>
+                    <p class="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                        Designed specifically for B2B tech companies that require deep technical understanding without generic agency noise.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Detailed Services Breakdown -->
+            <section class="py-20 bg-surface">
+                <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+                    
+                    <!-- Service 1 -->
+                    <div class="bg-white p-8 rounded-xl border border-surface-border shadow-sm">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <span class="px-3 py-1 bg-accent/10 text-accent mono-tag font-bold rounded">01</span>
+                            <h2 class="text-2xl font-bold text-navy-900">Technical Content</h2>
+                        </div>
+                        <p class="text-slate-600 mb-6 leading-relaxed">
+                            Turn complex architectural workflows and security protocols into engaging, readable articles that educate prospects and validate your technical edge.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                            <div class="p-3 bg-surface rounded border border-surface-border text-sm font-medium text-slate-700">✓ Technical blogs</div>
+                            <div class="p-3 bg-surface rounded border border-surface-border text-sm font-medium text-slate-700">✓ SEO articles</div>
+                            <div class="p-3 bg-surface rounded border border-surface-border text-sm font-medium text-slate-700">✓ Technical explainers</div>
+                            <div class="p-3 bg-surface rounded border border-surface-border text-sm font-medium text-slate-700">✓ Industry articles</div>
+                            <div class="p-3 bg-surface rounded border border-surface-border text-sm font-medium text-slate-700">✓ Thought leadership pieces</div>
+                        </div>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="bg-white p-8 rounded-xl border border-surface-border shadow-sm">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <span class="px-3 py-1 bg-accent/10 text-accent mono-tag font-bold rounded">02</span>
+                            <h2 class="text-2xl font-bold text-navy-900">Technical Documentation</h2>
+                        </div>
+                        <p class="text-slate-600 mb-6 leading-relaxed">
+                            Clear, structured documentation that reduces support tickets and accelerates developer onboarding and API integration times.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                            <div class="p-3 bg-surface rounded border border-surface-border text-sm font-medium text-slate-700">✓ Product documentation</div>
+                            <div class="p-3 bg-surface rounded border border-surface-border text-sm font-medium text-slate-700">✓ User guides</div>
+                            <div class="p-3 bg-surface rounded border border-surface-border text-sm font-medium text-slate-700">✓ Knowledge bases</div>
+                            <div class="p-3 bg-surface rounded border border-surface-border text-sm font-medium text-slate-700">✓ SOPs (Standard Operating Procedures)</div>
+                            <div class="p-3 bg-surface rounded border border-surface-border text-sm font-medium text-slate-700">✓ Technical manuals</div>
+                            <div class="p-3 bg-surface rounded border border-surface-border text-sm font-medium text-slate-700">✓ Release notes</div>
+                        </div>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="bg-white p-8 rounded-xl border border-surface-border shadow-sm">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <span class="px-3 py-1 bg-accent/10 text-accent mono-tag font-bold rounded">03</span>
+                            <h2 class="text-2xl font-bold text-navy-900">B2B Content</h2>
+                        </div>
+                        <p class="text-slate-600 mb-6 leading-relaxed">
+                            High-intent collateral built to convince CISOs, engineering leaders, and procurement committees during evaluation cycles.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                            <div class="p-3 bg-surface rounded border border-surface-border text-sm font-medium text-slate-700">✓ Whitepapers</div>
+                            <div class="p-3 bg-surface rounded border border-surface-border text-sm font-medium text-slate-700">✓ Case studies</div>
+                            <div class="p-3 bg-surface rounded border border-surface-border text-sm font-medium text-slate-700">✓ Solution briefs</div>
+                            <div class="p-3 bg-surface rounded border border-surface-border text-sm font-medium text-slate-700">✓ Website copy</div>
+                            <div class="p-3 bg-surface rounded border border-surface-border text-sm font-medium text-slate-700">✓ Landing pages</div>
+                            <div class="p-3 bg-surface rounded border border-surface-border text-sm font-medium text-slate-700">✓ Product content</div>
+                        </div>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="bg-white p-8 rounded-xl border border-surface-border shadow-sm">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <span class="px-3 py-1 bg-accent/10 text-accent mono-tag font-bold rounded">04</span>
+                            <h2 class="text-2xl font-bold text-navy-900">Founder & LinkedIn Content</h2>
+                        </div>
+                        <p class="text-slate-600 mb-6 leading-relaxed">
+                            Establish executive authority on social platforms without sounding like an automated personal branding bot.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                            <div class="p-3 bg-surface rounded border border-surface-border text-sm font-medium text-slate-700">✓ LinkedIn posts</div>
+                            <div class="p-3 bg-surface rounded border border-surface-border text-sm font-medium text-slate-700">✓ Founder thought leadership</div>
+                            <div class="p-3 bg-surface rounded border border-surface-border text-sm font-medium text-slate-700">✓ Executive essays</div>
+                            <div class="p-3 bg-surface rounded border border-surface-border text-sm font-medium text-slate-700">✓ Content repurposing</div>
+                        </div>
+                    </div>
+
+                    <!-- Service 5 -->
+                    <div class="bg-white p-8 rounded-xl border border-surface-border shadow-sm">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <span class="px-3 py-1 bg-accent/10 text-accent mono-tag font-bold rounded">05</span>
+                            <h2 class="text-2xl font-bold text-navy-900">Content Strategy</h2>
+                        </div>
+                        <p class="text-slate-600 mb-6 leading-relaxed">
+                            Data-backed editorial planning aligned with search demand, competitor gaps, and product roadmap milestones.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                            <div class="p-3 bg-surface rounded border border-surface-border text-sm font-medium text-slate-700">✓ Content research</div>
+                            <div class="p-3 bg-surface rounded border border-surface-border text-sm font-medium text-slate-700">✓ Competitor research</div>
+                            <div class="p-3 bg-surface rounded border border-surface-border text-sm font-medium text-slate-700">✓ Content calendars</div>
+                            <div class="p-3 bg-surface rounded border border-surface-border text-sm font-medium text-slate-700">✓ Topic planning</div>
+                            <div class="p-3 bg-surface rounded border border-surface-border text-sm font-medium text-slate-700">✓ Content strategy</div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+
+        <!-- ==================== PAGE 3: PORTFOLIO ==================== -->
+        <div id="page-portfolio" class="page-view hidden">
+            <!-- Portfolio Header -->
+            <section class="py-20 bg-white border-b border-surface-border tech-grid">
+                <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <span class="mono-tag text-accent font-semibold tracking-wider uppercase">Selected Work</span>
+                    <h1 class="text-4xl font-bold text-navy-900 tracking-tight mt-2 mb-4">Portfolio Grid</h1>
+                    <p class="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                        Explore our sample work across cybersecurity, AI, cloud infrastructure, and technical documentation.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Filter Buttons & Grid -->
+            <section class="py-16 bg-surface">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <!-- Filter bar -->
+                    <div class="flex flex-wrap items-center justify-center gap-2 mb-12">
+                        <button onclick="filterPortfolio('All')" id="filter-All" class="filter-btn px-4 py-2 bg-navy-900 text-white rounded text-sm font-medium transition-colors">All</button>
+                        <button onclick="filterPortfolio('Cybersecurity')" id="filter-Cybersecurity" class="filter-btn px-4 py-2 bg-white text-slate-700 border border-surface-border hover:bg-slate-50 rounded text-sm font-medium transition-colors">Cybersecurity</button>
+                        <button onclick="filterPortfolio('AI')" id="filter-AI" class="filter-btn px-4 py-2 bg-white text-slate-700 border border-surface-border hover:bg-slate-50 rounded text-sm font-medium transition-colors">AI</button>
+                        <button onclick="filterPortfolio('Cloud')" id="filter-Cloud" class="filter-btn px-4 py-2 bg-white text-slate-700 border border-surface-border hover:bg-slate-50 rounded text-sm font-medium transition-colors">Cloud</button>
+                        <button onclick="filterPortfolio('SaaS')" id="filter-SaaS" class="filter-btn px-4 py-2 bg-white text-slate-700 border border-surface-border hover:bg-slate-50 rounded text-sm font-medium transition-colors">SaaS</button>
+                        <button onclick="filterPortfolio('Documentation')" id="filter-Documentation" class="filter-btn px-4 py-2 bg-white text-slate-700 border border-surface-border hover:bg-slate-50 rounded text-sm font-medium transition-colors">Documentation</button>
+                        <button onclick="filterPortfolio('Thought Leadership')" id="filter-Thought Leadership" class="filter-btn px-4 py-2 bg-white text-slate-700 border border-surface-border hover:bg-slate-50 rounded text-sm font-medium transition-colors">Thought Leadership</button>
+                    </div>
+
+                    <!-- Portfolio Cards Grid -->
+                    <div id="portfolio-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        
+                        <!-- Card 1 -->
+                        <div data-category="Cybersecurity" class="portfolio-card bg-white p-6 rounded-xl border border-surface-border hover:border-accent transition-all cursor-pointer group" onclick="openProjectModal('Zero-Trust Architecture Guide', 'Cybersecurity', 'Technical Blog', 'A deep-dive technical guide explaining zero-trust microsegmentation for cloud-native enterprise environments.')">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="mono-tag px-2.5 py-1 bg-surface rounded text-slate-600">Cybersecurity</span>
+                                <span class="text-xs text-slate-400">Technical Blog</span>
+                            </div>
+                            <h3 class="font-bold text-navy-900 text-lg group-hover:text-accent transition-colors">Zero-Trust Architecture Guide</h3>
+                            <p class="text-slate-600 text-sm mt-2 line-clamp-2">Explaining microsegmentation policies for Kubernetes workloads without corporate fluff.</p>
+                            <div class="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between">
+                                <span class="text-xs text-accent font-medium">View Project</span>
+                                <span class="text-xs text-slate-400 mono-tag">Read time: 6 min</span>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div data-category="AI" class="portfolio-card bg-white p-6 rounded-xl border border-surface-border hover:border-accent transition-all cursor-pointer group" onclick="openProjectModal('RAG vs Fine-Tuning LLMs', 'AI', 'Cybersecurity Explainer', 'An analytical comparison piece for machine learning engineers evaluating enterprise data security constraints.')">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="mono-tag px-2.5 py-1 bg-surface rounded text-slate-600">AI</span>
+                                <span class="text-xs text-slate-400">Explainer</span>
+                            </div>
+                            <h3 class="font-bold text-navy-900 text-lg group-hover:text-accent transition-colors">RAG vs Fine-Tuning LLMs</h3>
+                            <p class="text-slate-600 text-sm mt-2 line-clamp-2">Technical breakdown of data privacy and latency trade-offs for B2B AI software applications.</p>
+                            <div class="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between">
+                                <span class="text-xs text-accent font-medium">View Project</span>
+                                <span class="text-xs text-slate-400 mono-tag">Read time: 8 min</span>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div data-category="Cloud" class="portfolio-card bg-white p-6 rounded-xl border border-surface-border hover:border-accent transition-all cursor-pointer group" onclick="openProjectModal('Securing Cloud Infrastructure', 'Cloud', 'Whitepaper', 'A comprehensive 15-page whitepaper on automated compliance monitoring in multi-cloud environments.')">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="mono-tag px-2.5 py-1 bg-surface rounded text-slate-600">Cloud</span>
+                                <span class="text-xs text-slate-400">Whitepaper</span>
+                            </div>
+                            <h3 class="font-bold text-navy-900 text-lg group-hover:text-accent transition-colors">Securing Cloud Infrastructure</h3>
+                            <p class="text-slate-600 text-sm mt-2 line-clamp-2">In-depth whitepaper examining posture management and continuous compliance auditing.</p>
+                            <div class="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between">
+                                <span class="text-xs text-accent font-medium">View Project</span>
+                                <span class="text-xs text-slate-400 mono-tag">Read time: 15 min</span>
+                            </div>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div data-category="SaaS" class="portfolio-card bg-white p-6 rounded-xl border border-surface-border hover:border-accent transition-all cursor-pointer group" onclick="openProjectModal('Reducing CI/CD Pipeline Latency', 'SaaS', 'Case Study', 'How a B2B SaaS engineering team cut security scan times in half without compromising pipeline safety.')">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="mono-tag px-2.5 py-1 bg-surface rounded text-slate-600">SaaS</span>
+                                <span class="text-xs text-slate-400">Case Study</span>
+                            </div>
+                            <h3 class="font-bold text-navy-900 text-lg group-hover:text-accent transition-colors">Reducing CI/CD Pipeline Latency</h3>
+                            <p class="text-slate-600 text-sm mt-2 line-clamp-2">Detailed engineering case study highlighting developer productivity metrics and SAST integration.</p>
+                            <div class="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between">
+                                <span class="text-xs text-accent font-medium">View Project</span>
+                                <span class="text-xs text-slate-400 mono-tag">Read time: 5 min</span>
+                            </div>
+                        </div>
+
+                        <!-- Card 5 -->
+                        <div data-category="Documentation" class="portfolio-card bg-white p-6 rounded-xl border border-surface-border hover:border-accent transition-all cursor-pointer group" onclick="openProjectModal('Developer API Reference Docs', 'Documentation', 'Product Documentation', 'Structuring an intuitive developer portal with clear code snippets, error handling, and authentication guides.')">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="mono-tag px-2.5 py-1 bg-surface rounded text-slate-600">Documentation</span>
+                                <span class="text-xs text-slate-400">Product Docs</span>
+                            </div>
+                            <h3 class="font-bold text-navy-900 text-lg group-hover:text-accent transition-colors">Developer API Reference Docs</h3>
+                            <p class="text-slate-600 text-sm mt-2 line-clamp-2">Complete API reference overhaul focused on reducing time-to-first-hello-world for developers.</p>
+                            <div class="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between">
+                                <span class="text-xs text-accent font-medium">View Project</span>
+                                <span class="text-xs text-slate-400 mono-tag">Interactive Portal</span>
+                            </div>
+                        </div>
+
+                        <!-- Card 6 -->
+                        <div data-category="Thought Leadership" class="portfolio-card bg-white p-6 rounded-xl border border-surface-border hover:border-accent transition-all cursor-pointer group" onclick="openProjectModal('Founder LinkedIn Thought Leadership', 'Thought Leadership', 'LinkedIn Content', 'Building technical authority for early-stage startup founders through contrarian takes on cloud security.')">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="mono-tag px-2.5 py-1 bg-surface rounded text-slate-600">Thought Leadership</span>
+                                <span class="text-xs text-slate-400">LinkedIn</span>
+                            </div>
+                            <h3 class="font-bold text-navy-900 text-lg group-hover:text-accent transition-colors">Founder LinkedIn Series</h3>
+                            <p class="text-slate-600 text-sm mt-2 line-clamp-2">Thought leadership campaign highlighting deep engineering insights without superficial hype.</p>
+                            <div class="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between">
+                                <span class="text-xs text-accent font-medium">View Project</span>
+                                <span class="text-xs text-slate-400 mono-tag">Series Campaign</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ==================== PAGE 4: ABOUT ==================== -->
+        <div id="page-about" class="page-view hidden">
+            <!-- About Hero -->
+            <section class="py-20 bg-white border-b border-surface-border tech-grid">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <span class="mono-tag text-accent font-semibold tracking-wider uppercase">About The Studio</span>
+                    <h1 class="text-4xl font-bold text-navy-900 tracking-tight mt-2 mb-4">Built by a Technical Writer, Not a Corporate Agency</h1>
+                    <p class="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                        Specialized content support for technology companies that value precision over fluff.
+                    </p>
+                </div>
+            </section>
+
+            <!-- About Content -->
+            <section class="py-20 bg-surface">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                    <div class="bg-white p-8 sm:p-12 rounded-xl border border-surface-border shadow-sm">
+                        <h2 class="text-2xl font-bold text-navy-900 mb-6">The Story & Positioning</h2>
+                        <blockquote class="border-l-4 border-accent pl-6 italic text-slate-700 text-lg my-6">
+                            "I've spent the last five years working with cybersecurity and technology content, turning complex technical concepts into clear and useful content."
+                        </blockquote>
+                        <p class="text-slate-600 leading-relaxed mb-6">
+                            NexusWrite was created to solve a common frustration in B2B tech marketing: hiring large agencies that treat cybersecurity, AI, and cloud software like generic commodities. When you hire a traditional agency, your complex product gets handed off to junior copywriters who rely on buzzwords like "cutting-edge" and "seamless."
+                        </p>
+                        <p class="text-slate-600 leading-relaxed mb-6">
+                            Here, you work directly with an experienced technical writer who understands how APIs function, how security teams evaluate threat intelligence platforms, and how developers read documentation.
+                        </p>
+                        <p class="text-slate-600 leading-relaxed">
+                            Whether you need a standalone whitepaper, structured API documentation, or ongoing technical blog posts, the work is approached with rigorous technical understanding and clear human writing.
+                        </p>
+                    </div>
+
+                    <!-- Solo Studio Approach -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white p-6 rounded-xl border border-surface-border">
+                            <h3 class="font-bold text-navy-900 text-lg mb-2">Solo Focus & Agility</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">Operating as an independent technical content studio ensures direct communication, rapid turnaround times, and consistent quality without bureaucratic overhead.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl border border-surface-border">
+                            <h3 class="font-bold text-navy-900 text-lg mb-2">Designed for Expansion</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">While currently structured as a specialized solo studio, workflows and processes are architected to scale into a boutique content team as client needs grow.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ==================== PAGE 5: CONTACT ==================== -->
+        <div id="page-contact" class="page-view hidden">
+            <!-- Contact Hero -->
+            <section class="py-20 bg-white border-b border-surface-border tech-grid">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <span class="mono-tag text-accent font-semibold tracking-wider uppercase">Get In Touch</span>
+                    <h1 class="text-4xl font-bold text-navy-900 tracking-tight mt-2 mb-4">Let's Talk About Your Project</h1>
+                    <p class="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                        Have a complex product or documentation challenge? Send a note and let's discuss how we can help.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Contact Form Section -->
+            <section class="py-20 bg-surface">
+                <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="bg-white p-8 sm:p-12 rounded-xl border border-surface-border shadow-sm">
+                        
+                        <!-- Success Message State (Hidden by default) -->
+                        <div id="contact-success" class="hidden text-center py-12 space-y-4">
+                            <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-2xl font-bold">✓</div>
+                            <h3 class="text-2xl font-bold text-navy-900">Message Received</h3>
+                            <p class="text-slate-600 max-w-md mx-auto">Thank you for reaching out. We will review your project details and get back to you within 24 business hours.</p>
+                            <button onclick="resetContactForm()" class="mt-4 px-6 py-2.5 bg-navy-900 text-white rounded text-sm font-medium">Send Another Message</button>
+                        </div>
+
+                        <!-- Form -->
+                        <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-700 mb-2">Your Name *</label>
+                                    <input type="text" required class="w-full px-4 py-3 bg-surface border border-surface-border rounded focus:ring-2 focus:ring-accent focus:outline-none" placeholder="Alex Chen">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-700 mb-2">Company Name *</label>
+                                    <input type="text" required class="w-full px-4 py-3 bg-surface border border-surface-border rounded focus:ring-2 focus:ring-accent focus:outline-none" placeholder="CloudSec Labs">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-700 mb-2">Email Address *</label>
+                                    <input type="email" required class="w-full px-4 py-3 bg-surface border border-surface-border rounded focus:ring-2 focus:ring-accent focus:outline-none" placeholder="alex@cloudseclabs.com">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-700 mb-2">What do you need help with? *</label>
+                                    <select class="w-full px-4 py-3 bg-surface border border-surface-border rounded focus:ring-2 focus:ring-accent focus:outline-none">
+                                        <option>Technical Content & Blogs</option>
+                                        <option>Technical Documentation & Guides</option>
+                                        <option>B2B Whitepapers & Case Studies</option>
+                                        <option>Founder & LinkedIn Thought Leadership</option>
+                                        <option>Content Strategy & Research</option>
+                                        <option>Other Project</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-2">Budget Range (USD)</label>
+                                <select class="w-full px-4 py-3 bg-surface border border-surface-border rounded focus:ring-2 focus:ring-accent focus:outline-none">
+                                    <option>$3,000 - $5,000</option>
+                                    <option>$5,000 - $10,000</option>
+                                    <option>$10,000+</option>
+                                    <option>Monthly Retainer</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-2">Project Details / Message *</label>
+                                <textarea rows="4" required class="w-full px-4 py-3 bg-surface border border-surface-border rounded focus:ring-2 focus:ring-accent focus:outline-none" placeholder="Tell us about your product, target audience, and content goals..."></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-4 bg-accent hover:bg-accent-hover text-white font-medium rounded transition-colors shadow-sm">
+                                Let's Talk About Your Project
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Professional Email Placeholder Card -->
+                    <div class="mt-8 p-6 bg-white rounded-xl border border-surface-border text-center">
+                        <p class="text-sm text-slate-600 mb-1">Prefer direct email? Reach out at:</p>
+                        <a href="mailto:contact@nexuswrite.io" class="font-mono font-bold text-accent hover:underline">contact@nexuswrite.io</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <div id="project-modal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-lg w-full p-6 sm:p-8 relative border border-surface-border shadow-xl">
+            <button onclick="closeProjectModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 p-2 font-bold">&times;</button>
+            <div id="modal-category" class="mono-tag text-accent font-semibold uppercase mb-2">Category</div>
+            <h3 id="modal-title" class="text-2xl font-bold text-navy-900 mb-3">Project Title</h3>
+            <div id="modal-type" class="text-xs text-slate-500 mb-4 font-mono">Content Type</div>
+            <p id="modal-desc" class="text-slate-600 text-sm leading-relaxed mb-6">Project description goes here...</p>
+            <div class="flex items-center justify-end space-x-3">
+                <button onclick="closeProjectModal()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-medium rounded">Close</button>
+                <button onclick="closeProjectModal(); switchPage('contact');" class="px-4 py-2 bg-accent hover:bg-accent-hover text-white text-sm font-medium rounded">Request Similar Content</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-navy-900 text-slate-400 border-t border-navy-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="flex flex-col md:flex-row justify-between items-center border-b border-navy-800 pb-8 mb-8">
+                <div class="flex items-center space-x-3 mb-4 md:mb-0">
+                    <div class="w-8 h-8 rounded bg-accent text-white flex items-center justify-center font-mono font-bold text-sm">
+                        NX
+                    </div>
+                    <span class="font-bold text-white text-lg tracking-tight">NexusWrite</span>
+                </div>
+                <div class="flex flex-wrap items-center gap-6 text-sm">
+                    <button onclick="switchPage('home')" class="hover:text-white transition-colors">Home</button>
+                    <button onclick="switchPage('services')" class="hover:text-white transition-colors">Services</button>
+                    <button onclick="switchPage('portfolio')" class="hover:text-white transition-colors">Portfolio</button>
+                    <button onclick="switchPage('about')" class="hover:text-white transition-colors">About</button>
+                    <button onclick="switchPage('contact')" class="hover:text-white transition-colors">Contact</button>
+                </div>
+            </div>
+            <div class="flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500">
+                <p>&copy; 2026 NexusWrite Technical Content Studio. All rights reserved.</p>
+                <p class="mt-2 sm:mt-0 font-mono">Cybersecurity • AI • Cloud • SaaS Content Writing</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Page Navigation Controller
+        function switchPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page-view');
+            pages.forEach(p => p.classList.add('hidden'));
+
+            // Show target page
+            const target = document.getElementById('page-' + pageId);
+            if (target) {
+                target.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            // Update Nav link styles
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('text-accent', 'font-semibold');
+                link.classList.add('text-slate-600');
+            });
+
+            const activeNav = document.getElementById('nav-' + pageId);
+            if (activeNav) {
+                activeNav.classList.remove('text-slate-600');
+                activeNav.classList.add('text-accent', 'font-semibold');
+            }
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Portfolio Category Filter
+        function filterPortfolio(category) {
+            // Update filter button styles
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-navy-900', 'text-white');
+                btn.classList.add('bg-white', 'text-slate-700', 'border', 'border-surface-border');
+            });
+
+            const activeBtn = document.getElementById('filter-' + category);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-white', 'text-slate-700', 'border', 'border-surface-border');
+                activeBtn.classList.add('bg-navy-900', 'text-white');
+            }
+
+            // Filter cards
+            const cards = document.querySelectorAll('.portfolio-card');
+            cards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                if (category === 'All' || cardCategory === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Project Modal Controller
+        function openProjectModal(title, category, type, description) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-category').innerText = category;
+            document.getElementById('modal-type').innerText = type;
+            document.getElementById('modal-desc').innerText = description;
+            
+            const modal = document.getElementById('project-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeProjectModal() {
+            const modal = document.getElementById('project-modal');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        }
+
+        // Contact Form Handler
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            document.getElementById('contact-form').classList.add('hidden');
+            document.getElementById('contact-success').classList.remove('hidden');
+        }
+
+        function resetContactForm() {
+            document.getElementById('contact-form').reset();
+            document.getElementById('contact-success').classList.add('hidden');
+            document.getElementById('contact-form').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
